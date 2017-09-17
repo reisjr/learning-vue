@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lesson 5</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div id="app">
+            <!--h1>Skill: {{ skill }}</h1>
+            <input type="text" v-model="points"-->
+            <!--h1>{{ first }} {{ last }}</h1-->
+            <h1>{{ compFulLName }}</h1>
+            <input v-model="first">
+            <input v-model="last">
+        </div>
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/2.0.0/vue.js"></script>
+
+        <script>
+
+            Vue.component('dreis-counter', {
+                template: '#dreis-counter-template',
+
+                props: ['subject'],
+
+                data : function() {
+                    return { count: 0 };
+                }
+            });
+
+            new Vue({
+                el: '#app',
+
+                data : {
+                    first: 'David',
+                    last: 'Reis',
+                    fullName: 'David Reis'
+                },
+
+                computed: {
+                    compFulLName: function() {
+                        return this.first + ' ' + this.last;
+                    }
+                }
+
+            //     data: {
+            //         points: 30
+            //     },
+
+            //     computed: {
+            //         skill: function() {
+            //             if (this.points <= 100) { 
+            //                 return 'Beginner' ;
+            //             } 
+                        
+            //             return 'Intermeditate';
+            //         }
+            //     },
+
+            //     methods: {
+            //    }
+            });
+        </script>
+    </body>
+</html>

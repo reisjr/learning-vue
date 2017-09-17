@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lesson</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        
+        <div id="app">
+        
+            <dreis-counter subject="Likes"></dreis-counter>
+            <dreis-counter subject="Dislikes"></dreis-counter>
+
+            <pre>{{ $data | json }}</pre>
+        </div>
+
+        <template id="dreis-counter-template">
+            <div>
+                <h1>{{ subject }}</h1>
+                <button @click="count += 1">Increment {{ count }}</button>
+            </div>
+        </template>
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/2.0.0/vue.js"></script>
+
+        <script>
+
+            Vue.component('dreis-counter', {
+                template: '#dreis-counter-template',
+
+                props: ['subject'],
+
+                data : function() {
+                    return { count: 0 };
+                }
+            });
+
+            new Vue({
+                el: '#app',
+
+                data: {
+                    message: '',
+                    count : 0
+                },
+
+                methods: {
+               }
+            });
+        </script>
+    </body>
+</html>
